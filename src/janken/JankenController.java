@@ -10,7 +10,7 @@ public class JankenController {
      private  static final String[] hands = {
          "グー", "チョキ", "パー"
      };
-
+     private int score = 0;
       private Label cpuHandLabel;
       private Label myHandLabel;
       private Label resultLabel;
@@ -53,13 +53,21 @@ public class JankenController {
      //じゃんけんの結果の取得
      private String getResult(int myHand, int cpuHand) {
          int r = (myHand - cpuHand + 3) % 3;
-
+         if(r == 2) {
+             score +=2;
+            } else if(r==1) {
+             score -=1;
+            } else {
+             score +=1;
+            }
          return (r == 2) ? "あなたの勝ち！" : ((r == 1) ? "あなたの負け！" : "あいこ！");
      }
      //自分の手・相手の手・じゃんけんの結果を各ラベルに表示
      private void updateLabels(int myHand, int cpuHand) {
+
          cpuHandLabel.setText("コンピュータの手: " + hands[cpuHand]);
          myHandLabel.setText("あんたの手: " + hands[myHand]);
          resultLabel.setText("結果: " + getResult(myHand, cpuHand));
+         scoreLabel.setText(" Score:"+score);
      }
 }
