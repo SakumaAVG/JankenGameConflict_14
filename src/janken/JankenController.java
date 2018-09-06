@@ -59,7 +59,7 @@ public class JankenController {
      //自分の手・相手の手・じゃんけんの結果を各ラベルに表示
      private void updateLabels(int myHand, int cpuHand) {
          cpuHandLabel.setText("コンピュータの手: " + hands[cpuHand]);
-         myHandLabel.setText("あなたの手: " + hands[myHand]);
+         myHandLabel.setText("あんたの手: " + hands[myHand]);
          resultLabel.setText("結果: " + getResult(myHand, cpuHand));
      }
 }
